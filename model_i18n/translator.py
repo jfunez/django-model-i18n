@@ -86,10 +86,8 @@ class Translator(object):
         attrs = {'__module__': master_model.__module__}
 
         if opts.master_language not in dict(settings.LANGUAGES):
-            from model_i18n.exceptions import OptionWarning
             msg = '\nCode language "%s" not exist: Avaible languages are: %s.\n The model %s take master languages "%s"' % \
             (opts.master_language, " ".join(dict(settings.LANGUAGES).keys()), master_model.__name__, settings.MODEL_I18N_MASTER_LANGUAGE)
-            print OptionWarning(msg)
 
         # creates unique_together for master_model
         trans_unique_together = []
